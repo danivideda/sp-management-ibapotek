@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "sp-management-ibapotek",
+  "outputfilename": "sp-management-ibapotek",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Dani Ihza Farrosi",
+    "email": "dani.videda@gmail.com"
+  }
+}
