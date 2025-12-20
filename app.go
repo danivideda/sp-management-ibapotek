@@ -3,11 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
+	"sp-management-ibapotek/dbsqlc"
 )
 
 // App struct
 type App struct {
-	ctx context.Context
+	ctx     context.Context
+	queries *dbsqlc.Queries
 }
 
 // NewApp creates a new App application struct
@@ -19,9 +22,24 @@ func NewApp() *App {
 // so we can call the runtime methods
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
+	db, err := newMariaDB()
+	if err != nil {
+		log.Panic(err)
+	}
+
+	q := dbsqlc.New(db)
+	a.queries = q
 }
 
 // Greet returns a greeting for the given name
 func (a *App) Greet(name string) string {
 	return fmt.Sprintf("Hello %s, It's show time!", name)
+}
+
+func (a *App) DObat() []dbsqlc.GetMinStockRow {
+	rows, err := a.queries.GetMinStock(a.ctx)
+	if err != nil {
+		log.Panic(err)
+	}
+	return rows
 }

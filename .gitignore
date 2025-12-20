@@ -1,3 +1,6 @@
 build/bin
 node_modules
 frontend/dist
+
+# Don't include the copy of the prod db
+sql/dump
