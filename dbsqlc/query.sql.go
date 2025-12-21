@@ -11,7 +11,7 @@ import (
 )
 
 const getMinStock = `-- name: GetMinStock :many
-SELECT d.kode, d.nama, d.stok, d.stok_min, d.komposisi FROM dobat d 
+SELECT d.kode, d.nama, CAST(d.stok AS DECIMAL(10, 2)), CAST(d.stok_min AS DECIMAL(10, 2)), d.komposisi FROM dobat d 
 WHERE CAST(d.stok AS FLOAT) <= CAST(d.stok_min AS FLOAT)
 AND d.stok_min > 0
 ORDER BY d.nama
@@ -20,8 +20,8 @@ ORDER BY d.nama
 type GetMinStockRow struct {
 	Kode      string
 	Nama      sql.NullString
-	Stok      sql.NullString
-	StokMin   sql.NullString
+	DStok     string
+	DStokMin  string
 	Komposisi sql.NullString
 }
 
@@ -37,8 +37,8 @@ func (q *Queries) GetMinStock(ctx context.Context) ([]GetMinStockRow, error) {
 		if err := rows.Scan(
 			&i.Kode,
 			&i.Nama,
-			&i.Stok,
-			&i.StokMin,
+			&i.DStok,
+			&i.DStokMin,
 			&i.Komposisi,
 		); err != nil {
 			return nil, err

@@ -3,8 +3,8 @@ export namespace dbsqlc {
 	export class GetMinStockRow {
 	    Kode: string;
 	    Nama: sql.NullString;
-	    Stok: sql.NullString;
-	    StokMin: sql.NullString;
+	    DStok: string;
+	    DStokMin: string;
 	    Komposisi: sql.NullString;
 	
 	    static createFrom(source: any = {}) {
@@ -15,8 +15,8 @@ export namespace dbsqlc {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.Kode = source["Kode"];
 	        this.Nama = this.convertValues(source["Nama"], sql.NullString);
-	        this.Stok = this.convertValues(source["Stok"], sql.NullString);
-	        this.StokMin = this.convertValues(source["StokMin"], sql.NullString);
+	        this.DStok = source["DStok"];
+	        this.DStokMin = source["DStokMin"];
 	        this.Komposisi = this.convertValues(source["Komposisi"], sql.NullString);
 	    }
 	
