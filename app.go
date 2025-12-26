@@ -36,10 +36,15 @@ func (a *App) Greet(name string) string {
 	return fmt.Sprintf("Hello %s, It's show time!", name)
 }
 
+// Add DObat list
 func (a *App) DObat() []dbsqlc.GetMinStockRow {
 	rows, err := a.queries.GetMinStock(a.ctx)
 	if err != nil {
 		log.Panic(err)
 	}
 	return rows
+}
+
+func trigger() {
+	fmt.Println("change 1")
 }
