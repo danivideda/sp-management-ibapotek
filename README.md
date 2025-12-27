@@ -1,4 +1,10 @@
-# README
+# SP Management iB Apotek
+
+This app is made to streamline the pharmaceutical procurement.
+
+> Work still in progress 🚧
+
+<img src="docs/app.png" width="80%" />
 
 ## About
 
