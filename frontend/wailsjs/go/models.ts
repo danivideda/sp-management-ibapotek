@@ -5,6 +5,7 @@ export namespace dbsqlc {
 	    Nama: sql.NullString;
 	    DStok: string;
 	    DStokMin: string;
+	    SatuanBeli: sql.NullString;
 	    Komposisi: sql.NullString;
 	
 	    static createFrom(source: any = {}) {
@@ -17,6 +18,7 @@ export namespace dbsqlc {
 	        this.Nama = this.convertValues(source["Nama"], sql.NullString);
 	        this.DStok = source["DStok"];
 	        this.DStokMin = source["DStokMin"];
+	        this.SatuanBeli = this.convertValues(source["SatuanBeli"], sql.NullString);
 	        this.Komposisi = this.convertValues(source["Komposisi"], sql.NullString);
 	    }
 	

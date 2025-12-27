@@ -30,6 +30,9 @@ function LowStock() {
         <div className="text-gray-800 font-mono">{item.DStokMin}</div>{" "}
       </Item>
       <Item>
+        <div>{item.SatuanBeli.String}</div>
+      </Item>
+      <Item>
         <div className="flex justify-center w-full">
           <span className="mr-2">Belum SP</span>
           <button className="bg-green-50 border-2 border-green-700 rounded-xl px-1">
@@ -41,11 +44,11 @@ function LowStock() {
   ));
 
   return (
-    <>
+    <div>
       <h1 className="sticky top-0 h-7 text-xl font-semibold text-gray-700 backdrop-blur-sm bg-white/80">
-        <div className="container mx-auto">My Obat list</div>
+        <div className="container mx-auto px-3">My Obat list</div>
       </h1>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-3">
         <table className="w-full">
           <thead className="sticky top-[1.75rem] backdrop-blur-sm bg-white/80">
             <tr>
@@ -53,13 +56,14 @@ function LowStock() {
               <Th>NAMA</Th>
               <Th>STOK</Th>
               <Th>MIN. STOK</Th>
+              <Th>Satuan</Th>
               <Th>STATUS</Th>
             </tr>
           </thead>
           <tbody>{listItems}</tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }
 
